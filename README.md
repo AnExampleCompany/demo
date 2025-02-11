@@ -1,24 +1,14 @@
 # Debricked Demo Repository
 
-This repository is an official demo by [Debricked](https://debricked.com) to showcase common obstacles and risks related to open source dependencies. It demonstrates how our tools help you analyze, detect, and manage dependency risks automatically using GitHub Actions.
-
-## Features
-
-- **Comprehensive Dependency Analysis:** Identify potential risks and vulnerabilities in your open source dependencies.
-- **GitHub Actions Integration:** Automatically scan for dependency issues with our pre-configured GitHub Actions workflow.
-- **Practical Examples:** Explore sample projects and configurations that illustrate dependency issues and how Debricked can help mitigate them.
-
-## Prerequisites
-
-Before you begin, ensure you have:
-
-- A GitHub account and a cloned copy of this repository.
-- A Debricked API key. If you don't have one, obtain it from your [Debricked account](https://debricked.com).
-- Basic knowledge of GitHub Actions and repository configuration.
+This is an intentionally vulnerable demo repository by [Debricked](https://debricked.com) that showcases common obstacles and risks related to open source dependencies. It demonstrates how our tool helps you analyze, detect, manage and remediate open source risks.
 
 ## Getting Started
 
-### 1. Clone the Repository
+### 1. Create your copy of the Repository
+
+This repository comes with a pre-configured GitHub Actions workflow located at `.github/workflows/debricked-scan.yml`, but it is also possible to scan it locally using the [Debricked CLI](https://github.com/debricked/cli/tree/main) or with your CI/CD tool of choice. For more information, visit [the documentation](https://docs.debricked.com/tools-and-integrations/integrations). 
+
+To do: Add more information on Forking vs Cloning etc.
 
 Clone the demo repository to your local machine:
 
@@ -36,14 +26,15 @@ If you've forked this repository, please note that GitHub disables workflows by 
 
 This step is necessary for the workflows to run as expected.
 
-### 3. Configure Your Debricked API Key
+### 3. Configure Your Debricked Access Token
 
-This repository comes with a pre-configured GitHub Actions workflow located at `.github/workflows/debricked-scan.yml`. To enable the dependency scans, configure your Debricked API key as a GitHub secret:
+To enable the dependency scans with GitHub actions, set up your Debricked Access Token as a GitHub secret:
 
-1. Navigate to the repository on GitHub.
-2. Go to **Settings** > **Secrets and variables** > **Actions**.
-3. Click **New repository secret**.
-4. Name the secret `DEBRICKED_API_KEY` and paste your API key as the value.
+1. Generate an Access Token through the Debricked UI (instructions can be found [here](https://docs.debricked.com/product/administration/generate-access-token))
+2. Navigate to the repository on GitHub.
+3. Go to **Settings** > **Secrets and variables** > **Actions**.
+4. Click **New repository secret**.
+5. Name the secret `DEBRICKED_API_KEY` and paste your Access Token as the value.
 
 Once the API key is configured, the workflow will automatically scan your repository for dependency issues on every push or pull request targeting the `main` branch.
 
