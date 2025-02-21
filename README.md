@@ -4,29 +4,23 @@ This is an intentionally vulnerable demo repository by [Debricked](https://debri
 
 ## Getting Started
 
-### 1. Create your copy of the Repository
+### 1. Get a copy of the Repository
 
-This repository comes with a pre-configured GitHub Actions workflow located at `.github/workflows/debricked-scan.yml`, but it is also possible to scan it locally using the [Debricked CLI](https://github.com/debricked/cli/tree/main) or with your CI/CD tool of choice. For more information, visit [the documentation](https://docs.debricked.com/tools-and-integrations/integrations). 
+> [!NOTE]
+>This repository comes with a pre-configured GitHub Actions workflow located at [.github/workflows/debricked.yml](.github/workflows/debricked.yml), but it is also possible to use your CI/CD tool of choice or download/clone the repository and scan it locally using the [Debricked CLI](https://github.com/debricked/cli/tree/main). For more information on integrating with other tools, visit [the documentation](https://docs.debricked.com/tools-and-integrations/integrations). 
 
-To do: Add more information on Forking vs Cloning etc.
+The easiest way to get set up is to simply fork or import this repository to your own GitHub account, making use of the existing GitHub Actions workflow.
 
-Clone the demo repository to your local machine:
+#### 1.1 (If forking the repository) Enable GitHub Actions in Forked Repositories
 
-~~~bash
-git clone https://github.com/debricked/demo.git
-cd demo
-~~~
-
-### 2. Enable GitHub Actions in Forked Repositories (if applicable)
-
-If you've forked this repository, please note that GitHub disables workflows by default in forked repositories. To enable them:
+If you've forked this repository, please note that GitHub disables running workflows by default. To enable them:
 
 1. Navigate to the **Actions** tab in your forked repository.
 2. Click the button labeled **"I understand my workflows, go ahead and enable them"**.
 
 This step is necessary for the workflows to run as expected.
 
-### 3. Configure Your Debricked Access Token
+### 2. Configure Your Debricked Access Token
 
 To enable the dependency scans with GitHub actions, set up your Debricked Access Token as a GitHub secret:
 
@@ -36,18 +30,26 @@ To enable the dependency scans with GitHub actions, set up your Debricked Access
 4. Click **New repository secret**.
 5. Name the secret `DEBRICKED_API_KEY` and paste your Access Token as the value.
 
-Once the API key is configured, the workflow will automatically scan your repository for dependency issues on every push or pull request targeting the `main` branch.
+### 3. Run a scan
+
+Once the API key is configured, the workflow will automatically scan your repository for dependency issues on:
+
+a) Every push to any branch.
+
+b) [Manually triggering the workflow](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow#running-a-workflow)
 
 ## Repository Structure
 
-- **.github/workflows/debricked-scan.yml**:  
+- **[.github/workflows/debricked.yml](.github/workflows/debricked.yml)**:  
   Contains the GitHub Actions workflow that triggers the Debricked dependency scan.
-- **README.md**:  
+- **[README.md](README.md)**:  
   This documentation file.
-- **LICENSE**:  
+- **[LICENSE](LICENSE)**:  
   The repository license.
-- **Additional Files/Directories**:  
-  Other files in the repository (or any sample projects/dependency manifests) serve as examples to illustrate dependency scenarios.
+- **[web/](web/)**:  
+  Folder with code related to the frontend, using various vulnerable open source dependencies
+- **[src/](src/)**:  
+  Folder with code related to the backend, which is set up using a vulnerable version of the [Spring Framework](https://spring.io/projects/spring-framework).
 
 ## Additional Resources
 
